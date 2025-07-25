@@ -6,7 +6,10 @@ terraform {
     }
   }
   backend "azurerm" {
-
+    resource_group_name  = "aks-demo-rg"
+    storage_account_name = "newclassicstg"
+    container_name       = "actioncontainer"
+    key                  = "terraform.tfstate"
   }
 }
 
