@@ -89,8 +89,8 @@ module "azurerm_sql_server" {
   depends_on          = [module.azurerm_key_vault_secret_username, module.azurerm_key_vault_secret_password]
   source              = "../../modules/azurerm_sql_server"
   sql_server_name     = "todoinfra-sql-server"
-  resource_group_name = "todoinfra-rg"
-  location            = "westindia"
+  resource_group_name = "todoinfra-rg-new"
+  location            = "centralindia"
   key_vault_name      = "todoinfra-kv"
   secret_username     = "username"
   secret_password     = "password"
@@ -100,7 +100,7 @@ module "azurerm_sql_database" {
   depends_on          = [module.azurerm_sql_server]
   source              = "../../modules/azurerm_sql_database"
   database_name       = "todoinfra-sql-database"
-  resource_group_name = "todoinfra-rg"
+  resource_group_name = "todoinfra-rg-new"
   sql_server_name     = "todoinfra-sql-server"
 }
 
